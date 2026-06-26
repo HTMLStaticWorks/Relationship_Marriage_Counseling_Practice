@@ -1,0 +1,489 @@
+/* index.css - RS Marr Counseling Practice Custom Styles */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600; /* As requested, maintain heading font weight at 600 */
+  }
+
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 1);
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 113, 133, 0.8);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(76, 5, 25, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 29, 72, 1);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-nav {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delayed Animation Helpers */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Before and After Image Slider */
+.comparison-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-slider img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-slider .resize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.comparison-slider .handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  width: 4px;
+  background: #e11d48;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+}
+
+.comparison-slider .handle::after {
+  content: "↔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: #e11d48;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* RTL Specific Overrides for elements requiring physical properties */
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Floating Clean Air Bubbles Background decoration */
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dark .bubble {
+  background: radial-gradient(circle, rgba(159, 18, 57, 0.12) 0%, rgba(28, 10, 14, 0) 70%);
+}
+
+/* Webkit date picker indicator color fix in dark mode */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* --- Hamburger Menu Custom Style and Centering --- */
+#mobile-menu {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.dark #mobile-menu {
+  background: #0f172a !important;
+  background-color: #0f172a !important;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8) !important;
+}
+
+#mobile-menu a, 
+#mobile-menu button, 
+#mobile-menu div {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Limit widths of menus/buttons for a elegant centered list appearance */
+#mobile-menu a:not(#mobile-menu-close) {
+  width: 100% !important;
+  max-width: 280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#mobile-menu button {
+  max-width: 280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#mobile-menu .h-\[1px\] {
+  width: 100% !important;
+  max-width: 280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Center the flex layout containers inside mobile menu */
+#mobile-menu > div {
+  width: 100% !important;
+  max-width: 280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#mobile-menu .flex {
+  width: 100% !important;
+  max-width: 280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* --- Hero Section Height Overrides --- */
+
+/* At 768px (md) screens — reduce hero height */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-section {
+    min-height: 75vh !important;
+  }
+}
+
+/* At 1024px (lg) screens — reduce hero height */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-section {
+    min-height: 80vh !important;
+  }
+}
+
+/* At 360px / small mobile — hide the absolute background image, show separate img */
+@media (max-width: 639px) {
+  .hero-bg-img {
+    display: none !important;
+  }
+  .hero-overlay {
+    display: none !important;
+  }
+  .hero-section {
+    background: #1c0a0e !important;
+    min-height: auto !important;
+    padding-top: 2rem !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* --- Header Layout for 1024px - 1279px (lg screens) --- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Reduce nav outer container horizontal padding to fit the content */
+  nav .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Logo adjustment */
+  nav a.group {
+    column-gap: 0.375rem !important; /* space-x-1.5 equivalent */
+  }
+  nav a.group .w-10 {
+    width: 2.25rem !important; /* w-9 */
+    height: 2.25rem !important; /* h-9 */
+  }
+  nav a.group span.font-outfit {
+    font-size: 1.25rem !important; /* text-xl */
+  }
+
+  /* Desktop Menu container */
+  nav div.hidden.lg\:flex.space-x-1 {
+    column-gap: 0.125rem !important; /* space-x-0.5 */
+    margin-left: 0.375rem !important;
+    margin-right: 0.375rem !important;
+  }
+
+  /* Desktop Menu links */
+  nav div.hidden.lg\:flex.space-x-1 a {
+    padding-left: 0.375rem !important; /* px-1.5 */
+    padding-right: 0.375rem !important; /* px-1.5 */
+    font-size: 0.75rem !important; /* text-xs */
+  }
+
+  /* Utility Buttons container */
+  nav div.hidden.lg\:flex.space-x-4 {
+    column-gap: 0.375rem !important; /* space-x-1.5 */
+  }
+
+  /* Utility RTL/Theme Toggle buttons */
+  nav div.hidden.lg\:flex.space-x-4 button {
+    width: 2rem !important; /* w-8 */
+    height: 2rem !important; /* h-8 */
+  }
+
+  /* Sign Up button */
+  nav div.hidden.lg\:flex.space-x-4 a {
+    padding-left: 0.75rem !important; /* px-3 */
+    padding-right: 0.75rem !important; /* px-3 */
+    padding-top: 0.375rem !important; /* py-1.5 */
+    padding-bottom: 0.375rem !important; /* py-1.5 */
+    font-size: 0.75rem !important; /* text-xs */
+    border-radius: 0.5rem !important; /* rounded-lg */
+  }
+}
+
+/* ============================================================
+   Footer Glass – matches the glass-nav header appearance
+   Light mode : white glass | Dark mode : near-black glass
+   ============================================================ */
+.glass-footer {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(203, 213, 225, 0.9);
+  color: #475569; /* slate-600 */
+}
+
+.dark .glass-footer {
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Footer headings */
+.glass-footer h4 {
+  color: #0f172a !important;
+}
+.dark .glass-footer h4 {
+  color: #f8fafc !important;
+}
+
+/* Footer brand name */
+.glass-footer .footer-brand-name {
+  color: #0f172a !important;
+}
+.dark .glass-footer .footer-brand-name {
+  color: #f8fafc !important;
+}
+
+/* Footer links */
+.glass-footer a {
+  color: #64748b;
+}
+.glass-footer a:hover {
+  color: #e11d48;
+}
+.dark .glass-footer a {
+  color: #94a3b8;
+}
+.dark .glass-footer a:hover {
+  color: #fb7185;
+}
+
+/* Footer social icon buttons – keep icon white on hover in both light & dark mode */
+.glass-footer a[aria-label]:hover {
+  color: #ffffff !important;
+}
+
+/* Footer list items (contact info) */
+.glass-footer ul li,
+.glass-footer ul li span {
+  color: #64748b;
+}
+.dark .glass-footer ul li,
+.dark .glass-footer ul li span {
+  color: #94a3b8;
+}
+
+/* Footer paragraph text */
+.glass-footer p {
+  color: #64748b;
+}
+.dark .glass-footer p {
+  color: #94a3b8;
+}
+
+/* Footer copyright row */
+.glass-footer .footer-copyright {
+  border-top-color: rgba(203, 213, 225, 0.8) !important;
+  color: #64748b;
+}
+.dark .glass-footer .footer-copyright {
+  border-top-color: rgba(51, 65, 85, 0.8) !important;
+  color: #94a3b8;
+}
+
+/* ============================================================
+   Center lone last card in a 2-col md grid
+   Use:  add class "last-card-md" to the last card wrapper
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .last-card-md {
+    grid-column: 1 / -1;
+    width: calc(50% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================================
+   FAQ row hover glow effect
+   ============================================================ */
+details.faq-item summary:hover {
+  background-color: rgba(251, 113, 133, 0.06);
+  border-radius: 1rem;
+}
+details.faq-item[open] summary {
+  border-radius: 1rem 1rem 0 0;
+}
+details.faq-item summary .faq-chevron {
+  transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
+}
+details.faq-item summary:hover .faq-chevron {
+  background-color: #e11d48;
+  color: #fff;
+}
+details.faq-item[open] summary .faq-chevron {
+  transform: rotate(180deg);
+}

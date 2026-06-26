@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RS Marr - Relationship Growth & Premarital Retreats</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Tailwind CSS 3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              light: '#fff1f2',
+              dark: '#1c0a0e',
+              primary: '#e11d48',
+              primaryHover: '#be123c',
+              secondary: '#fb7185',
+              secondaryHover: '#f43f5e',
+              accent: '#9f1239',
+              navy: '#4c0519',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+            <i data-lucide="heart" class="w-6 h-6 animate-pulse"></i>
+          </div>
+          <span class="font-outfit text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            RS<span class="text-brand-primary">Marr</span>
+          </span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-1 rtl:space-x-reverse">
+          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Home 1</a>
+          <a href="home2.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition-colors text-brand-primary dark:text-rose-400">Home 2</a>
+          <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">About</a>
+          <a href="services.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Modalities</a>
+          <a href="gallery.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Inside Practice</a>
+          <a href="blog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Blog</a>
+          <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Book Session</a>
+        </div>
+
+        <!-- Desktop Utility Buttons -->
+        <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+          
+          <!-- RTL Toggle -->
+          <button class="rtl-toggle w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" aria-label="Toggle Direction">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+          </button>
+          
+          <!-- Theme Toggle -->
+          <button class="theme-toggle w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="sun-icon w-5 h-5 hidden"></i>
+            <i data-lucide="moon" class="moon-icon w-5 h-5"></i>
+          </button>
+
+          <a href="signup.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-accent text-white text-sm font-semibold hover:shadow-lg hover:shadow-rose-500/25 transition-all transform hover:-translate-y-0.5">Sign Up</a>
+        </div>
+
+        <!-- Mobile Navigation Menu Toggle Button -->
+        <div class="flex items-center space-x-3 lg:hidden rtl:space-x-reverse">
+          <button id="mobile-menu-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Open Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide Down Menu -->
+    <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 glass-nav shadow-lg flex-col px-4 pt-4 pb-6 space-y-3 transition-all duration-300 transform opacity-0 -translate-y-4">
+      <a href="index.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Home 1</a>
+      <a href="home2.html" class="px-3 py-2 rounded-lg text-base font-semibold text-brand-primary bg-rose-50/50 dark:bg-rose-950/20">Home 2</a>
+      <a href="about.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-655 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">About</a>
+      <a href="services.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-655 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Modalities</a>
+      <a href="gallery.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-655 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Inside Practice</a>
+      <a href="blog.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-655 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Blog</a>
+      <a href="contact.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-655 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Book Session</a>
+      <div class="h-[1px] bg-slate-200 dark:bg-slate-800 my-2"></div>
+      <div class="flex items-center justify-between space-x-3 rtl:space-x-reverse pt-1 pb-2">
+        <!-- Mobile RTL Toggle -->
+        <button class="rtl-toggle flex-1 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center bg-white dark:bg-slate-900" aria-label="Toggle Direction">
+          <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        </button>
+        <!-- Mobile Theme Toggle -->
+        <button class="theme-toggle flex-1 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-655 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center space-x-2 bg-white dark:bg-slate-900" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="sun-icon w-4 h-4 hidden"></i>
+          <i data-lucide="moon" class="moon-icon w-4 h-4"></i>
+          <span class="text-xs font-bold tracking-wider dark:hidden">Dark Mode</span>
+          <span class="text-xs font-bold tracking-wider hidden dark:inline">Light Mode</span>
+        </button>
+      </div>
+      <div class="flex flex-col space-y-2.5">
+        <a href="signup.html" class="text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-accent text-white text-sm font-semibold shadow-md shadow-rose-500/20">Sign Up</a>
+      </div>
+      <button id="mobile-menu-close" class="absolute top-2 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow pt-20">
+        <!-- 1. Hero Section -->
+    <section class="hero-section relative flex flex-col sm:flex-row min-h-screen sm:items-center sm:justify-center py-24 md:py-32 sm:overflow-hidden text-white bg-slate-950">
+      <!-- Full Cover Background Image — hidden on mobile, visible sm+ -->
+      <img src="https://static1.squarespace.com/static/5b79244e7c9327fa97ffe565/t/5d3380d1b5c4a100011a90b1/1639807086588/couple+in+bed.jpg?format=1500w" 
+           alt="RS Marr Couples Therapy Retreat Session" 
+           class="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-65">
+      <!-- Gradient/Overlay — hidden on mobile -->
+      <div class="hidden sm:block absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/55 to-slate-900/25 z-0"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8 animate-fade-in-up">
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-white/10 text-rose-300 font-semibold text-xs tracking-wider uppercase backdrop-blur-md">
+            <i data-lucide="heart" class="w-4 h-4"></i>
+            <span>Structured Couples Workshops & retreats</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-outfit leading-tight text-white">
+            Relationship Intimacy &<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-400">Premarital Retreats</span>
+          </h1>
+          
+          <p class="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed">
+            Strengthen connection, align relationship vision, and establish healthy communication habits through intensive, expert-guided relationship workshops.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto relative z-10 w-full">
+          <a href="contact.html" class="w-full sm:w-72 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold text-center hover:shadow-lg hover:shadow-rose-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center">
+            Book Retreat Assessment
+          </a>
+          <a href="services.html" class="w-full sm:w-72 px-8 py-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 text-white font-semibold text-center backdrop-blur-sm transition-all flex items-center justify-center">
+            Browse Retreat Plans
+          </a>
+        </div>
+
+        <!-- Metric summaries -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto pt-10 border-t border-white/10">
+          <div class="space-y-1">
+            <p class="text-3xl font-bold font-outfit text-rose-400">100%</p>
+            <p class="text-xs text-slate-300 font-medium">Confidentiality Assured</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-3xl font-bold font-outfit text-rose-400">4.9/5</p>
+            <p class="text-xs text-slate-300 font-medium">Client Success Rating</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-3xl font-bold font-outfit text-rose-400"><span class="stat-counter" data-target="12">0</span>k+</p>
+            <p class="text-xs text-slate-300 font-medium">Hours Clinical Practice</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-3xl font-bold font-outfit text-rose-400">0</p>
+            <p class="text-xs text-slate-300 font-medium">Zero-Blame Atmosphere</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile-only: image displayed below content as a standalone block -->
+      <img 
+        src="https://static1.squarespace.com/static/5b79244e7c9327fa97ffe565/t/5d3380d1b5c4a100011a90b1/1639807086588/couple+in+bed.jpg?format=1500w" 
+        alt="RS Marr Couples Therapy Retreat" 
+        class="block sm:hidden w-full flex-shrink-0 mt-6" 
+        style="height: 260px; object-fit: cover;">
+    </section>
+
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-primary font-semibold uppercase tracking-wider text-sm">Subtle Relationship Patterns</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-outfit text-slate-900 dark:text-white">
+            Common Threats to Relationship Health
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 font-normal">
+            If left unaddressed, negative communication dynamics can quietly pull partners apart, leading to chronic emotional distance.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Problem 1 -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md overflow-hidden hover:-translate-y-1 transition-all duration-300">
+            <div class="w-full h-52 overflow-hidden shadow-sm">
+              <img src="https://selfcareimpact.com/wp-content/uploads/2025/04/relationship-loop.webp" alt="The Criticism Loop" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">The Criticism Loop</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+                Harsh startups and personal attacks erode mutual respect, provoking defensive and reactive cycles.
+              </p>
+            </div>
+          </div>
+
+          <!-- Problem 2 -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md overflow-hidden hover:-translate-y-1 transition-all duration-300">
+            <div class="w-full h-52 overflow-hidden shadow-sm">
+              <img src="https://strategicpsychology.com.au/wp-content/uploads/2023/08/Mad-Adult-Man-looking-at-wife.jpg" alt="Emotional Stonewalling" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Emotional Stonewalling</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+                Shutting down and withdrawing from difficult conversations leaves your partner feeling dismissed and isolated.
+              </p>
+            </div>
+          </div>
+
+          <!-- Problem 3 -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md overflow-hidden hover:-translate-y-1 transition-all duration-300">
+            <div class="w-full h-52 overflow-hidden shadow-sm">
+              <img src="https://energeticsinstitute.com.au/wp-content/uploads/2023/04/shutterstock_2413798183.jpg" alt="Emotional Distancing" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Emotional Distancing</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+                Failing to co-regulate stress leads to living parallel, emotionally separated lives with little shared intimacy.
+              </p>
+            </div>
+          </div>
+
+          <!-- Problem 4 -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md overflow-hidden hover:-translate-y-1 transition-all duration-300">
+            <div class="w-full h-52 overflow-hidden shadow-sm">
+              <img src="https://spearscounseling.com/wp-content/uploads/2024/04/high-conflict-service_800x600.webp" alt="Broken Trust Barriers" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Broken Trust Barriers</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+                Unresolved attachment injuries or boundary violations block relational security from reforming.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Equipment & Technology Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left side: image showcase -->
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-brand-secondary to-brand-primary opacity-10 blur-xl dark:opacity-20"></div>
+            <div class="relative glass-card p-3 rounded-3xl shadow-2xl">
+              <img src="https://advice.cdn.betterhelp.com/advice/images/regain/6013/e408b4e3f6b9de1909e0e6e87d9cb390-woman-glasses-yellow-top-working_l_sm.jpeg" 
+                   alt="Modern connection counseling office room" 
+                   class="rounded-2xl w-full h-[320px] md:h-[400px] object-cover">
+            </div>
+          </div>
+
+          <!-- Right side: technology descriptions -->
+          <div class="lg:col-span-7 space-y-6 text-left rtl:text-right">
+            <span class="text-brand-secondary font-semibold uppercase tracking-wider text-sm">Our Therapeutic Approach</span>
+            <h2 class="text-3xl md:text-4xl font-bold font-outfit text-slate-900 dark:text-white">
+              Evidence-Based Methodologies We Deploy
+            </h2>
+            <p class="text-slate-600 dark:text-slate-300 font-normal">
+              We leverage leading psychological frameworks to guarantee a structured, secure roadmap for relationship healing and premarital preparation.
+            </p>
+ 
+            <div class="space-y-4 pt-2">
+              <!-- Item 1 -->
+              <div class="flex items-start space-x-3.5 rtl:space-x-reverse">
+                <div class="mt-1 p-2 rounded-lg bg-white dark:bg-slate-900 text-brand-primary shadow-sm flex-shrink-0">
+                  <i data-lucide="heart" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Emotionally Focused Therapy (EFT)</h4>
+                  <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-0.5">
+                    EFT focuses on restructuring emotional attachment bonds, guiding couples to express vulnerable needs and build security.
+                  </p>
+                </div>
+              </div>
+ 
+              <!-- Item 2 -->
+              <div class="flex items-start space-x-3.5 rtl:space-x-reverse">
+                <div class="mt-1 p-2 rounded-lg bg-white dark:bg-slate-900 text-brand-secondary shadow-sm flex-shrink-0">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Gottman Method Couple Therapy</h4>
+                  <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-0.5">
+                    Using precise diagnostic surveys and tools to dismantle harsh behaviors and foster mutual admiration.
+                  </p>
+                </div>
+              </div>
+ 
+              <!-- Item 3 -->
+              <div class="flex items-start space-x-3.5 rtl:space-x-reverse">
+                <div class="mt-1 p-2 rounded-lg bg-white dark:bg-slate-900 text-rose-400 shadow-sm flex-shrink-0">
+                  <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Active Dialogue Coaching</h4>
+                  <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-0.5">
+                    Structured exercises to reflect, validate, and respond to your partner without defensive escalation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- 4. Service Coverage Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-primary font-semibold uppercase tracking-wider text-sm">Client Profiles</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-outfit text-slate-900 dark:text-white">
+            Connection Programs We Offer
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 font-normal">
+            No dynamic is too complex. We offer customized guidance programs depending on your relational milestones.
+          </p>
+        </div>
+ 
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-900 text-center overflow-hidden hover:shadow-md transition-shadow">
+            <div class="w-full h-40 overflow-hidden shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8qqulxBQik2ILjgVit6SOZB-UmgYozm7FiTD7MU-p5XLuDOsesuteQtI&s=10" alt="Premarital Foundations" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-2">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Premarital </h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal">
+                Engaged couples and serious partners seeking to lock in healthy communication rules before marriage.
+              </p>
+            </div>
+          </div>
+ 
+          <!-- Card 2 -->
+          <div class="rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-900 text-center overflow-hidden hover:shadow-md transition-shadow">
+            <div class="w-full h-40 overflow-hidden shadow-sm">
+              <img src="https://themarriagefit.com/wp-content/uploads/2020/07/who-we-are.jpg" alt="Married Couples" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-2">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Married Couples</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal">
+                Long-term partners looking to de-escalate cycles of conflict and restore intimacy.
+              </p>
+            </div>
+          </div>
+ 
+          <!-- Card 3 -->
+          <div class="rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-900 text-center overflow-hidden hover:shadow-md transition-shadow">
+            <div class="w-full h-40 overflow-hidden shadow-sm">
+              <img src="https://images.squarespace-cdn.com/content/v1/67f86def0112b47aae23766a/140a460f-66e7-45d3-a1d4-c6a1f49ea4c0/distressed-couple-couples-therapy-therapist-in-california.jpg" alt="Crisis Interventions" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-2">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Crisis Interventions</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal">
+                Couples recovering from deep attachment trauma, breaches of trust, or extensive emotional distance.
+              </p>
+            </div>
+          </div>
+ 
+          <!-- Card 4 -->
+          <div class="rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-900 text-center overflow-hidden hover:shadow-md transition-shadow">
+            <div class="w-full h-40 overflow-hidden shadow-sm">
+              <img src="https://sacramento-therapist.com/wp-content/uploads/2025/01/Counseling-Approaches-for-Overcoming-Infidelity-1024x683.jpg" alt="Individual Growth" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-2">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Individual Growth</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal">
+                Individual partners seeking to break cycle dynamics in dating and build secure relational habits.
+              </p>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </section>
+
+    <!-- 5. Customer Satisfaction Metrics Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Stats section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-secondary font-semibold uppercase tracking-wider text-sm">Accredited Standards</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-outfit text-slate-900 dark:text-white">
+            Trust Indicators & Ratings
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 font-normal">
+            Certified by leading couples counseling organizations and trusted by medical professionals.
+          </p>
+        </div>
+
+        <!-- Metrics cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Rating Card -->
+          <div class="glass-card p-8 rounded-3xl shadow-lg border border-slate-100 dark:border-slate-800 text-center space-y-4">
+            <div class="flex items-center justify-center text-amber-400 space-x-1 rtl:space-x-reverse">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-4xl font-extrabold text-slate-950 dark:text-white font-outfit">4.9 / 5.0</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Google Rating</h3>
+            <p class="text-xs text-slate-400 font-normal">Based on 650+ verified couples success reviews</p>
+          </div>
+
+          <!-- Projects Done -->
+          <div class="glass-card p-8 rounded-3xl shadow-lg border border-slate-100 dark:border-slate-800 text-center space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/30 text-brand-primary mx-auto flex items-center justify-center">
+              <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+            </div>
+            <p class="text-4xl font-extrabold text-slate-950 dark:text-white font-outfit"><span class="stat-counter" data-target="12">0</span>k+</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Clinical Hours</h3>
+            <p class="text-xs text-slate-400 font-normal">Confidential relationship counseling sessions completed</p>
+          </div>
+
+          <!-- Energy Savings -->
+          <div class="glass-card p-8 rounded-3xl shadow-lg border border-slate-100 dark:border-slate-800 text-center space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/30 text-brand-secondary mx-auto flex items-center justify-center">
+              <i data-lucide="heart" class="w-6 h-6"></i>
+            </div>
+            <p class="text-4xl font-extrabold text-slate-950 dark:text-white font-outfit"><span class="stat-counter" data-target="38">0</span>%</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Avg. Alignment Boost</h3>
+            <p class="text-xs text-slate-400 font-normal">Verified by post-counseling Gottman assessments</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="glass-footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-1 lg:col-span-4 space-y-4 text-left rtl:text-right">
+          <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+              <i data-lucide="heart" class="w-5 h-5"></i>
+            </div>
+            <span class="font-outfit text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+              RS<span class="text-brand-primary">Marr</span>
+            </span>
+          </a>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+            Evidence-based marriage and relationship therapy. Helping couples build trust, manage conflict, and restore emotional intimacy in a confidential, professional setting.
+          </p>
+          
+          <!-- Social Icons -->
+          <div class="flex items-center space-x-3 rtl:space-x-reverse pt-2">
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="Facebook">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="X (formerly Twitter)">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="LinkedIn">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="Instagram">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Links -->
+        <div class="md:col-span-1 lg:col-span-2 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Couples Therapy</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Marriage Retreats</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Premarital Guided</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Individual Therapy</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources / Links -->
+        <div class="md:col-span-1 lg:col-span-2 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Company</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li><a href="about.html" class="hover:text-brand-primary transition-colors">Our Team</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-primary transition-colors">Practice Gallery</a></li>
+            <li><a href="blog.html" class="hover:text-brand-primary transition-colors">Relationship Advice</a></li>
+            <li><a href="contact.html" class="hover:text-brand-primary transition-colors">Discreet Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts and Hours -->
+        <div class="md:col-span-1 lg:col-span-4 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider font-outfit">Contact & Hours</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="phone" class="w-4 h-4 text-brand-primary flex-shrink-0"></i>
+              <span>+1 (800) 555-MARR</span>
+            </li>
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="mail" class="w-4 h-4 text-brand-primary flex-shrink-0"></i>
+              <span class="break-all">intake@rsmarr-counseling.com</span>
+            </li>
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-secondary flex-shrink-0"></i>
+              <span>Mon - Fri: 8:00 AM - 8:00 PM</span>
+            </li>
+          </ul>
+          
+        </div>
+
+      </div>
+
+      <!-- Copyright row -->
+      <div class="footer-copyright pt-8 border-t flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm font-medium">
+        <p>&copy; 2026 RS Marr Counseling Practice. All rights reserved.</p>
+        <div class="flex items-center space-x-4 rtl:space-x-reverse mt-4 sm:mt-0">
+          <a href="#" class="hover:text-slate-900 dark:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="main.js"></script>
+</body>
+</html>

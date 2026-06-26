@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RS Marr - Therapy Modalities & Session Packages</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Tailwind CSS 3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              light: '#fff1f2',
+              dark: '#1c0a0e',
+              primary: '#e11d48',
+              primaryHover: '#be123c',
+              secondary: '#fb7185',
+              secondaryHover: '#f43f5e',
+              accent: '#9f1239',
+              navy: '#4c0519',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+            <i data-lucide="heart" class="w-6 h-6 animate-pulse"></i>
+          </div>
+          <span class="font-outfit text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            RS<span class="text-brand-primary">Marr</span>
+          </span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-1 rtl:space-x-reverse">
+          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Home 1</a>
+          <a href="home2.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Home 2</a>
+          <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">About</a>
+          <a href="services.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition-colors text-brand-primary dark:text-rose-400">Modalities</a>
+          <a href="gallery.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Inside Practice</a>
+          <a href="blog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Blog</a>
+          <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-primary dark:text-slate-300 dark:hover:text-rose-400 transition-colors">Book Session</a>
+        </div>
+
+        <!-- Desktop Utility Buttons -->
+        <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+          
+          <!-- RTL Toggle -->
+          <button class="rtl-toggle w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" aria-label="Toggle Direction">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+          </button>
+          
+          <!-- Theme Toggle -->
+          <button class="theme-toggle w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="sun-icon w-5 h-5 hidden"></i>
+            <i data-lucide="moon" class="moon-icon w-5 h-5"></i>
+          </button>
+
+          <a href="signup.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-accent text-white text-sm font-semibold hover:shadow-lg hover:shadow-rose-500/25 transition-all transform hover:-translate-y-0.5">Sign Up</a>
+        </div>
+
+        <!-- Mobile Navigation Menu Toggle Button -->
+        <div class="flex items-center space-x-3 lg:hidden rtl:space-x-reverse">
+          <button id="mobile-menu-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Open Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide Down Menu -->
+    <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 glass-nav shadow-lg flex-col px-4 pt-4 pb-6 space-y-3 transition-all duration-300 transform opacity-0 -translate-y-4">
+      <a href="index.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Home 1</a>
+      <a href="home2.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Home 2</a>
+      <a href="about.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">About</a>
+      <a href="services.html" class="px-3 py-2 rounded-lg text-base font-semibold text-brand-primary bg-rose-50/50 dark:bg-rose-950/20">Modalities</a>
+      <a href="gallery.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Inside Practice</a>
+      <a href="blog.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Blog</a>
+      <a href="contact.html" class="px-3 py-2 rounded-lg text-base font-medium text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Book Session</a>
+      <div class="h-[1px] bg-slate-200 dark:bg-slate-800 my-2"></div>
+      <div class="flex items-center justify-between space-x-3 rtl:space-x-reverse pt-1 pb-2">
+        <!-- Mobile RTL Toggle -->
+        <button class="rtl-toggle flex-1 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center bg-white dark:bg-slate-900" aria-label="Toggle Direction">
+          <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        </button>
+        <!-- Mobile Theme Toggle -->
+        <button class="theme-toggle flex-1 h-10 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center space-x-2 bg-white dark:bg-slate-900" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="sun-icon w-4 h-4 hidden"></i>
+          <i data-lucide="moon" class="moon-icon w-4 h-4"></i>
+          <span class="text-xs font-bold tracking-wider dark:hidden">Dark Mode</span>
+          <span class="text-xs font-bold tracking-wider hidden dark:inline">Light Mode</span>
+        </button>
+      </div>
+      <div class="flex flex-col space-y-2.5">
+        <a href="signup.html" class="text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-accent text-white text-sm font-semibold shadow-md shadow-rose-500/20">Sign Up</a>
+      </div>
+      <button id="mobile-menu-close" class="absolute top-2 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow pt-20">
+    
+    <!-- 1. Hero Section -->
+    <section class="relative py-20 md:py-28 overflow-hidden text-white bg-slate-950">
+      <!-- Full Cover Background Image -->
+      
+      <!-- Gradient/Overlay to ensure readability -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/55 to-slate-900/25 z-0"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 relative z-10 animate-fade-in-up">
+        <span class="text-rose-300 font-semibold uppercase tracking-wider text-xs sm:text-sm">What We Offer</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-outfit text-white leading-tight">
+          Therapy Modalities & Session Packages
+        </h1>
+        <p class="text-slate-200 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-normal leading-relaxed">
+          Explore our evidence-based therapy approaches and find a counseling package tailored to your relationship goals.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Therapy Modalities Section -->
+    <section class="py-16 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Couples & Marriage Counseling -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-all">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgO0jWxe0dU3br9wcMuUASoKhVLNxqwIwf8aTIcnYPpCfkmnz_90EQd_eG&s=10" 
+                 alt="Couples counseling session" 
+                 class="h-60 w-full object-cover">
+            <div class="p-6 flex flex-col flex-grow text-left rtl:text-right">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Couples & Marriage Counseling</h3>
+              <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-300 font-normal leading-relaxed flex-grow">
+                Emotionally Focused Therapy (EFT) to identify and transform negative conflict cycles into secure, loving connection.
+              </p>
+              <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-350 font-bold uppercase tracking-wider">EFT Framework</div>
+            </div>
+          </div>
+
+          <!-- Gottman Method -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-all">
+            <img src="https://middlewayhealing.com/wp-content/uploads/2025/08/insights-from-gottman-couples-therapy.jpg" 
+                 alt="Gottman method Couple" 
+                 class="h-60 w-full object-cover">
+            <div class="p-6 flex flex-col flex-grow text-left rtl:text-right">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Gottman Method Couple Therapy</h3>
+              <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-300 font-normal leading-relaxed flex-grow">
+                Structured assessment using the Sound Relationship House to map strengths, conflict patterns, and shared meaning.
+              </p>
+              <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-350 font-bold uppercase tracking-wider">Research-Backed Tools</div>
+            </div>
+          </div>
+
+          <!-- Premarital Counseling -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-all">
+            <img src="https://images.squarespace-cdn.com/content/v1/5f8342c5d3abf854b021b9f3/1644945057594-TIM1HE1QN9Q8EMC0GF9J/Gottman+Method+Couples+Therapy" 
+                 alt="Premarital counseling couple" 
+                 class="h-60 w-full object-cover">
+            <div class="p-6 flex flex-col flex-grow text-left rtl:text-right">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2"> Uder 18's Couples Counseling</h3>
+              <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-300 font-normal leading-relaxed flex-grow">
+                Build a strong foundation before marriage. Guided sessions on communication, finances, intimacy, and conflict resolution.
+              </p>
+              <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-350 font-bold uppercase tracking-wider">For Engaged Couples</div>
+            </div>
+          </div>
+
+          <!-- Individual Therapy -->
+          <div class="glass-card rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-all">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/077/577/553/small/couple-coffee-kitchen-moment-2023-photo.jpg" 
+                 alt="Individual relationship therapy" 
+                 class="h-60 w-full object-cover">
+            <div class="p-6 flex flex-col flex-grow text-left rtl:text-right">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Longlast Relationship Growth</h3>
+              <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-300 font-normal leading-relaxed flex-grow">
+                CBT-focused individual sessions for attachment wounds, intimacy avoidance, and building healthy relational habits.
+              </p>
+              <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-350 font-bold uppercase tracking-wider">Attachment & CBT</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Our Therapy Process Section -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-950 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-secondary font-semibold uppercase tracking-wider text-sm">Our 4-Step Process</span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-outfit text-slate-900 dark:text-white">
+            What Happens During Your Therapy Journey
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-normal">
+            We follow a structured, compassionate process designed to create safety, insight, and lasting change.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Phase 1 -->
+          <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-md space-y-4">
+            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/30 text-brand-primary text-xs font-bold font-outfit">STEP 1</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Secure Intake & Assessment</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+              Complete a confidential relationship assessment questionnaire. We identify your current conflict cycle, communication patterns, and core emotional needs as a foundation for therapy.
+            </p>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-md space-y-4">
+            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/30 text-brand-secondary text-xs font-bold font-outfit">STEP 2</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Cycle Mapping & De-escalation</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+              Your therapist guides you through identifying the negative triggers and reactions that fuel conflict. Together, you learn de-escalation techniques and interrupt the cycle before it escalates.
+            </p>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-md space-y-4">
+            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-rose-400 text-xs font-bold font-outfit">STEP 3</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Connection Building & Maintenance</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+              Build emotional safety through guided exercises, share vulnerable feelings, and receive tools for long-term relationship resilience, intimacy, and conflict repair.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Session Packages Section -->
+    <section class="py-16 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-primary font-semibold uppercase tracking-wider text-sm">Session Packages</span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-outfit text-slate-900 dark:text-white">
+            Transparent Counseling Session Pricing
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-normal">
+            Choose a package that matches your relationship goals. All packages include confidential, evidence-based therapy.
+          </p>
+        </div>
+
+        <!-- Plans Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Plan 1 -->
+          <div class="flex flex-col h-full bg-slate-50 dark:bg-slate-950 p-8 rounded-3xl border border-slate-100 dark:border-slate-900 shadow-lg relative">
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Initial Consultation</h3>
+              <p class="text-xs text-slate-400 mt-1 font-normal">First step — intake & relationship assessment</p>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-outfit">$150</span>
+                <span class="text-xs text-slate-400 ml-1 font-medium">/ 1 session</span>
+              </div>
+            </div>
+            
+            <ul class="space-y-3 mb-8 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 flex-grow">
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>90-min clinical intake session</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Conflict cycle diagnostic</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Therapist match recommendation</span></li>
+              <li class="text-slate-400 line-through flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="x" class="w-4 h-4"></i><span>Structured weekly sessions</span></li>
+            </ul>
+
+            <a href="contact.html?plan=intake" class="w-full text-center py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              Book Consultation
+            </a>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="flex flex-col h-full bg-white dark:bg-slate-900 p-8 rounded-3xl border-2 border-brand-primary shadow-xl relative">
+            <div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-brand-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Most Popular
+            </div>
+            
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Couples Core Growth</h3>
+              <p class="text-xs text-slate-400 mt-1 font-normal">Deep couples counseling program</p>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-outfit">$550</span>
+                <span class="text-xs text-slate-400 ml-1 font-medium">/ 4 sessions</span>
+              </div>
+            </div>
+            
+            <ul class="space-y-3 mb-8 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 flex-grow">
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>4 weekly 60-min couples sessions</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Gottman assessment worksheets</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Conflict de-escalation training</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Between-session homework exercises</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Telehealth option available</span></li>
+            </ul>
+
+            <a href="contact.html?plan=couples" class="w-full text-center py-3.5 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-semibold shadow-md shadow-rose-500/20 transition-colors">
+              Book Package
+            </a>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="last-card-md flex flex-col h-full bg-slate-50 dark:bg-slate-950 p-8 rounded-3xl border border-slate-100 dark:border-slate-900 shadow-lg relative">
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg">Intensive Marriage Repair</h3>
+              <p class="text-xs text-slate-400 mt-1 font-normal">Comprehensive program for deep repair</p>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-outfit">$990</span>
+                <span class="text-xs text-slate-400 ml-1 font-medium">/ 8 sessions</span>
+              </div>
+            </div>
+            
+            <ul class="space-y-3 mb-8 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 flex-grow">
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Everything in Core Growth</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>8 intensive sessions</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Full Gottman profiling report</span></li>
+              <li class="flex items-center space-x-2 rtl:space-x-reverse"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i><span>Conflict mediation workbook</span></li>
+            </ul>
+
+            <a href="contact.html?plan=intensive" class="w-full text-center py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              Choose Intensive
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Premarital note -->
+        <div class="mt-12 p-6 rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-900 flex flex-col md:flex-row items-center justify-between text-left rtl:text-right gap-6">
+          <div class="flex items-center space-x-4 rtl:space-x-reverse">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/30 text-brand-secondary flex items-center justify-center flex-shrink-0">
+              <i data-lucide="rings" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">Premarital & Group Workshop Packages</h4>
+              <p class="text-xs text-slate-400 mt-0.5 font-normal">Custom-length premarital programs and group relationship workshops available on request.</p>
+            </div>
+          </div>
+          <a href="contact.html?type=premarital" class="px-6 py-3 rounded-xl bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-semibold text-sm transition-colors flex-shrink-0">
+            Inquire Now
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. FAQ Section -->
+    
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="glass-footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-1 lg:col-span-4 space-y-4 text-left rtl:text-right">
+          <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+              <i data-lucide="heart" class="w-5 h-5"></i>
+            </div>
+            <span class="font-outfit text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+              RS<span class="text-brand-primary">Marr</span>
+            </span>
+          </a>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+            Evidence-based marriage and relationship therapy. Helping couples build trust, manage conflict, and restore emotional intimacy in a confidential, professional setting.
+          </p>
+          
+          <!-- Social Icons -->
+          <div class="flex items-center space-x-3 rtl:space-x-reverse pt-2">
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="Facebook">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="X (formerly Twitter)">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="LinkedIn">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-brand-primary hover:text-white transition-all duration-300" aria-label="Instagram">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Links -->
+        <div class="md:col-span-1 lg:col-span-2 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Couples Therapy</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Marriage Retreats</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Premarital Guided</a></li>
+            <li><a href="services.html" class="hover:text-brand-primary transition-colors">Individual Therapy</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources / Links -->
+        <div class="md:col-span-1 lg:col-span-2 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Company</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li><a href="about.html" class="hover:text-brand-primary transition-colors">Our Team</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-primary transition-colors">Practice Gallery</a></li>
+            <li><a href="blog.html" class="hover:text-brand-primary transition-colors">Relationship Advice</a></li>
+            <li><a href="contact.html" class="hover:text-brand-primary transition-colors">Discreet Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts and Hours -->
+        <div class="md:col-span-1 lg:col-span-4 space-y-4 text-left rtl:text-right">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider font-outfit">Contact & Hours</h4>
+          <ul class="space-y-2.5 text-sm font-medium">
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="phone" class="w-4 h-4 text-brand-primary flex-shrink-0"></i>
+              <span>+1 (800) 555-MARR</span>
+            </li>
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="mail" class="w-4 h-4 text-brand-primary flex-shrink-0"></i>
+              <span class="break-all">intake@rsmarr-counseling.com</span>
+            </li>
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-secondary flex-shrink-0"></i>
+              <span>Mon - Fri: 8:00 AM - 8:00 PM</span>
+            </li>
+          </ul>
+          
+        </div>
+
+      </div>
+
+      <!-- Copyright row -->
+      <div class="footer-copyright pt-8 border-t flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm font-medium">
+        <p>&copy; 2026 RS Marr Counseling Practice. All rights reserved.</p>
+        <div class="flex items-center space-x-4 rtl:space-x-reverse mt-4 sm:mt-0">
+          <a href="#" class="hover:text-slate-900 dark:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="main.js"></script>
+</body>
+</html>
